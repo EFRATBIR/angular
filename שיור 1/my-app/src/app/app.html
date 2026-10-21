@@ -1,10 +1,17 @@
 <app-header></app-header>
 
 <main>
+  <p class="selected">{{ selectedUserName ? 'המשתמש הנבחר: ' + selectedUserName : '' }}</p>
   <ul>
-    <li>
-      <app-user></app-user>
-    </li>
-
+    @for (user of users; track user.id) {
+      <li>
+        <app-user 
+        [id]="user.id"  
+        [name]="user.name" 
+        [avatar]="user.avatar"
+        (selectUser)="onSelectUser($event)">
+        </app-user>
+      </li>
+    }
   </ul>
 </main>

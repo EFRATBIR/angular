@@ -1,8 +1,6 @@
-
 <div>
-    <button>
-        <img src="IMG_0312.JPG" alt="user poto">
-           <span>שם משתמש</span>
+    <button (click)="onSelect()">
+  <img [src]="avatar" [alt]="name">
+  <span>{{ name }}</span>
     </button>
-
 </div>

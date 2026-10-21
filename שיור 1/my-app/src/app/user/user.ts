@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   imports: [],
@@ -6,4 +6,15 @@ import { Component } from '@angular/core';
   styleUrl: './user.css',
   templateUrl: './user.html',
 })
-export class User {}
+export class User {
+  @Input() name!: string;
+  @Input() avatar!: string;
+  @Input() id!: string; 
+  @Output() selectUser = new EventEmitter<string>();
+
+onSelect() {
+    this.selectUser.emit(this.id); 
+  }
+
+}
+
